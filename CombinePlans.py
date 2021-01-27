@@ -28,7 +28,7 @@ with open('outputName', 'w') as f:
    
 	#first file
 	filename = sys.argv[1]
-	print("Adding", filename)
+	print("1 - Adding", filename)
 	file = open(filename, 'r') 
 	Lines = file.readlines() 
 	
@@ -46,9 +46,8 @@ with open('outputName', 'w') as f:
 	
 	for i in range(2, 1+numFiles):
 		
-		print(i)
 		filename = sys.argv[i]
-		print("Adding", filename)
+		print(i, "- Adding", filename)
 		file = open(filename, 'r') 
 		Lines = file.readlines() 
 
