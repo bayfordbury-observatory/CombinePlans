@@ -1,14 +1,19 @@
-#Combine RTML files with different targets into one plan
+#CombinePlans.py - Combine RTML files with different targets into one plan
 #
-#Example usage: 
-#>>python CombinePlans.py StandardStar.rtml Target.rtml
+# Example usage: 
+# >>python CombinePlans.py StandardStar.rtml Target.rtml
 #
-#There is no maximum to the number of files that can be combined.
+# There is no maximum to the number of files that can be combined.
+# Each file should only contain one plan and one target, otherwise only the first plan and target is used.
+# Only the constraints from the first plan are used for the output
+# Output file will be overwritten if it already exists
 
 import sys
 
+#Name of the output file
 outputName = "Combined.rtml"
 
+#Number of files to be combined
 numFiles = len(sys.argv)-1
 
 print (numFiles, 'files to combine')
@@ -26,16 +31,18 @@ with open('outputName', 'w') as f:
 	print("Adding", filename)
 	file = open(filename, 'r') 
 	Lines = file.readlines() 
-
+	
+	#Loop through all lines until it reaches the end of the plan
 	for line in Lines: 	
-		if '</Request>' in line:
-			#exit once we reach the end of the plan
+		if '</Target>' in line:
+			#exit once we reach the end of the target
+			f.write(line)
 			break
 		else:
 			#otherwise write it to the output
 			f.write(line)
 			
-	#middle file
+	#Subsequent files
 	
 	for i in range(2, 1+numFiles):
 		
@@ -62,5 +69,3 @@ with open('outputName', 'w') as f:
 				#otherwise write it to the output
 				f.write(line)
 				
-		
-	
