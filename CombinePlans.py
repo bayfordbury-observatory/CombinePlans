@@ -66,12 +66,10 @@ with open(outputName, 'w') as f:
 			elif '</Target>' in line:
 				#end of target, write and stop
 				f.write(line)
-				if i!=numFiles:
+				if i!=numFiles+1:
 					break
 			elif foundPlan:
 				#otherwise write it to the output
 				f.write(line)
 	
 	#end file
-	f.write("  </Request>")
-	f.write("</RTML>")
