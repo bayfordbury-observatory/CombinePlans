@@ -3,7 +3,7 @@
 CombinePlans.py - Combine RTML files with different targets into one plan
 
 Example usage: 
->python CombinePlans.py StandardStar.rtml Target.rtml
+>python CombinePlans.py Output.rtml StandardStar.rtml Target.rtml
 
 There is no maximum to the number of files that can be combined.
 
