@@ -22,9 +22,9 @@ if numFiles <2:
 	raise Exception("At least two filenames must be provided")
 
 #start with fresh file
-with open('outputName', 'w'): pass
+with open(outputName, 'w'): pass
   
-with open('outputName', 'w') as f:
+with open(outputName, 'w') as f:
    
 	#first file
 	filename = sys.argv[1]
