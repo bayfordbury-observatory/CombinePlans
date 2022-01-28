@@ -10,13 +10,17 @@
 
 import sys
 
-#Name of the output file
-outputName = "Combined.rtml"
+
 
 #Number of files to be combined
-numFiles = len(sys.argv)-1
+numFiles = len(sys.argv)-2
+
+#Name of the output file
+outputName = sys.argv[1]
 
 print (numFiles, 'files to combine')
+
+print ("Output > "+outputName)
 
 if numFiles <2:
 	raise Exception("At least two filenames must be provided")
@@ -27,7 +31,7 @@ with open(outputName, 'w'): pass
 with open(outputName, 'w') as f:
    
 	#first file
-	filename = sys.argv[1]
+	filename = sys.argv[2]
 	print("1 - Adding", filename)
 	file = open(filename, 'r') 
 	Lines = file.readlines() 
@@ -44,7 +48,7 @@ with open(outputName, 'w') as f:
 			
 	#Subsequent files
 	
-	for i in range(2, 1+numFiles):
+	for i in range(3, 2+numFiles):
 		
 		filename = sys.argv[i]
 		print(i, "- Adding", filename)
@@ -67,4 +71,7 @@ with open(outputName, 'w') as f:
 			elif foundPlan:
 				#otherwise write it to the output
 				f.write(line)
-				
+	
+	#end file
+	f.write("  </Request>")
+	f.write("</RTML>")
