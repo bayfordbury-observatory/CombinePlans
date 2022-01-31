@@ -10,8 +10,6 @@
 
 import sys
 
-
-
 #Number of files to be combined
 numFiles = len(sys.argv)-2
 
@@ -48,9 +46,9 @@ with open(outputName, 'w') as f:
 			
 	#Subsequent files
 	
-	for i in range(3, 2+numFiles):
+	for i in range(2, 1+numFiles):
 		
-		filename = sys.argv[i]
+		filename = sys.argv[i+1]
 		print(i, "- Adding", filename)
 		file = open(filename, 'r') 
 		Lines = file.readlines() 
@@ -66,10 +64,8 @@ with open(outputName, 'w') as f:
 			elif '</Target>' in line:
 				#end of target, write and stop
 				f.write(line)
-				if i!=numFiles+1:
+				if i!=numFiles:
 					break
 			elif foundPlan:
 				#otherwise write it to the output
 				f.write(line)
-	
-	#end file
