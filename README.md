@@ -1,1 +1,1 @@
-Moved to [a link](https://github.com/bayfordbury-observatory/RTML/tree/main/CombinePlans)
+Moved to [RTML/CombinePlans](https://github.com/bayfordbury-observatory/RTML/tree/main/CombinePlans)
